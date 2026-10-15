@@ -1,0 +1,16 @@
+task.spawn(function()
+    local success, result = pcall(function()
+        return game:HttpGet("https://raw.githubusercontent.com/M4TE0SCRIPTS/ScriptsByMateo-Loader/refs/heads/main/Script-Loader-(UniversalHub)")
+    end)
+
+    if success and result then
+        local func, err = loadstring(result)
+        if func then
+            func()
+        else
+            warn("[ScriptsByMateo] Error compiling script:", err)
+        end
+    else
+        warn("[ScriptsByMateo] Error downloading script:", result)
+    end
+end)
